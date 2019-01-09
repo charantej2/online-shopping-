@@ -14,18 +14,18 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages= {"net.kc.shoppingbackend.dto"})
+@ComponentScan(basePackages={"net.kc.shoppingbackend.dto"})
 @EnableTransactionManagement
 public class HibernateConfig {
-	
-	//Change the below baed on the DBMS you choose
-	private final static String DATABASE_URL="jdbc:h2:tcp://localhost/~/onlineshopping";
-	private final static String DATABASE_DRIVER="orh.h2.Driver";
-	private final static String DATABASE_DIALECT="org.hibernate.dialect.H2Dailect";
-	private final static String DATABASE_USERNAME="charan";
-	private final static String DATABASE_PASSWORD="";
 
-	//dataSource bean will be available
+	// Change the below based on the DBMS you choose
+	private final static String DATABASE_URL="jdbc:h2:tcp://localhost/~/onlineshopping";
+	private final static String DATABASE_DRIVER="org.h2.Driver";
+	private final static String DATABASE_DIALECT="org.hibernate.dialect.H2Dialect";
+	private final static String DATABASE_USERNAME="kaarni";
+	private final static String DATABASE_PASSWORD="";
+	
+	// dataSource bean will be available
 	@Bean
 	public DataSource getDataSource() {
 		
