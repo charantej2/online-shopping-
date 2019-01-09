@@ -11,7 +11,7 @@ import net.kc.shoppingbackend.dto.Category;
 
 public class CategoryTestCase {
 
-	private static AnnotationConfigApplicationContext context;
+private static AnnotationConfigApplicationContext context;
 	
 	
 	private static CategoryDAO categoryDAO;
@@ -25,9 +25,9 @@ public class CategoryTestCase {
 		context = new AnnotationConfigApplicationContext();
 		context.scan("net.kc.shoppingbackend");
 		context.refresh();
-		categoryDAO = (CategoryDAO)context.getBean("categoryDAO");
+		categoryDAO = (CategoryDAO)context.getBean("categoryDAO");	
 	}
-	
+
 	
 /*	@Test
 	public void testAddCategory() {
@@ -39,11 +39,11 @@ public class CategoryTestCase {
 		category.setImageURL("CAT_105.png");
 		
 		assertEquals("Successfully added a category inside the table!",true,categoryDAO.add(category));
-		
-
-	}
-	*/
 	
+	
+	}
+    */
+
 /*	@Test
 	public void testGetCategory() {
 		
@@ -51,41 +51,92 @@ public class CategoryTestCase {
 		
 		
 		assertEquals("Successfully fetched a single category from the table!","Mobile Phones",category.getName());
-	
-	
+		
+		
 	}
 	*/
 	
-/*	@Test
-	public void testGetCategory() {
+/*  @Test
+	public void testUpdateCategory() {
 		
 		category = categoryDAO.get(3);
 		
 		category.setName("Phone");
 		
 		assertEquals("Successfully updated a single category in the table!",true,categoryDAO.update(category));
-	
-	
+		
+		
 	}
 	*/
 	
 /*	@Test
-	public void testGetCategory() {
+	public void testDeleteCategory() {
 		
 		category = categoryDAO.get(3);
 		assertEquals("Successfully deleted a single category in the table!",true,categoryDAO.delete(category));
-	
-	
+		
+		
 	}
 	*/
 	
-	@Test
+/*	@Test
 	public void testListCategory() {
 		
 		category = categoryDAO.get(3);
 		assertEquals("Successfully fetched the list of category from the table!",3,categoryDAO.list().size());
+		
+		
+	}
+	*/
 	
+	@Test
+	public void testCRUDCategory() {
+		
+		// add operation
+        category = new Category();
+		
+		category.setName("Laptop");
+		category.setDescription("This is some description for laptop!");
+		category.setImageURL("CAT_1.png");
+		
+		assertEquals("Successfully added a category inside the table!",true,categoryDAO.add(category));
+		
+		
+		category = new Category();
+		
+		category.setName("Mobile Phones");
+		category.setDescription("This is some description for mobile phones!");
+		category.setImageURL("CAT_2.png");
+		
+		assertEquals("Successfully added a category inside the table!",true,categoryDAO.add(category));
+	
+		
+		// fetching and updating the category
+		category = categoryDAO.get(2);
+		
+		category.setName("Phone");
+		
+		assertEquals("Successfully updated a single category in the table!",true,categoryDAO.update(category));
+
+		
+		// delete the category
+		assertEquals("Successfully deleted a single category in the table!",true,categoryDAO.delete(category));
+		
+		
+		// fetching the list
+		assertEquals("Successfully fetched the list of category from the table!",categoryDAO.list().size());
+		
 	
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
 }
+
+
