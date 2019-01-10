@@ -61,7 +61,7 @@ private static AnnotationConfigApplicationContext context;
 		
 		category = categoryDAO.get(3);
 		
-		category.setName("Phone");
+		category.setName("Mobile");
 		
 		assertEquals("Successfully updated a single category in the table!",true,categoryDAO.update(category));
 		
@@ -114,7 +114,7 @@ private static AnnotationConfigApplicationContext context;
 		// fetching and updating the category
 		category = categoryDAO.get(2);
 		
-		category.setName("Phone");
+		category.setName("Mobile");
 		
 		assertEquals("Successfully updated a single category in the table!",true,categoryDAO.update(category));
 
